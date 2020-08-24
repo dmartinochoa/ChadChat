@@ -10,11 +10,21 @@ app.disable('x-powered-by')
 
 //middlewares
 app.use(express.static('public'));
+app.use(express.static('client'));
+app.use(express.static('static'));
+app.use(express.static('UI/'));
+app.use(express.static('UI/Style/'));
 
 //routes
 app.get('/', (req,res)=>{
     res.sendFile(__dirname + '/client/index.html');
 });
+
+app.get('/danny', (req,res)=>{
+    res.sendFile(__dirname + '/UI/index.html');
+});
+
+
 
 //Listen on port 5000
 // server = app.listen( process.env.PORT || 5000);
