@@ -20,8 +20,6 @@ app.get('/', (req,res)=>{
 // server = app.listen( process.env.PORT || 5000);
 server = app.listen( process.env.PORT || 7890, '0.0.0.0');
 
-app.use(express.static(__dirname + '/client'));
-
 //socket.io instantiation
 const io = require("socket.io")(server);
 
@@ -82,3 +80,4 @@ io.on('connection', (socket) => {
         connnections.splice(connnections.indexOf(socket),1);
     })
 })
+
