@@ -10,14 +10,24 @@ app.disable('x-powered-by')
 
 //middlewares
 app.use(express.static('public'));
-app.use(express.static('client'));
-app.use(express.static('static'));
-app.use(express.static('UI/'));
-app.use(express.static('UI/Style/'));
+// app.use(express.static('client'));
+// app.use(express.static('static'));
+// app.use(express.static('UI/'));
+// app.use(express.static('UI/Style/'));
+// app.use(express.static('minimal-page/'));
+// app.use(express.static('minimal-page'));
 
 //routes
 app.get('/', (req,res)=>{
     res.sendFile(__dirname + '/client/index.html');
+});
+
+app.get('/client', (req,res)=>{
+    res.sendFile(__dirname + '/public/client/index.html');
+});
+
+app.get('/example', (req,res)=>{
+    res.sendFile(__dirname + '/public/minimal-page/index.html');
 });
 
 app.get('/danny', (req,res)=>{
